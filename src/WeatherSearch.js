@@ -10,6 +10,7 @@ export default function WeatherSearch() {
     setLoaded(true);
     setWeather({
       temperature: response.data.main.temp,
+      date: "Monday 07:00",
       description: response.data.weather[0].description,
       wind: response.data.wind.speed,
       humidity: response.data.main.humidity,
@@ -31,8 +32,14 @@ export default function WeatherSearch() {
 
   let form = (
     <form onSubmit={handleSubmit}>
-      <input type="search" placeholder="Enter a city" onChange={updateCity} />
-      <input type="submit" value="Search" />
+      <div className="row">
+        <div className="col-9">
+      <input type="search" placeholder="Enter a city" className="form-input" autpFocus ="on" onChange={updateCity} />
+      </div>
+      <div className="col-3">
+      <input type="submit" value="Search" className="form-button" />
+      </div>
+      </div>
     </form>
   );
 
@@ -40,15 +47,20 @@ export default function WeatherSearch() {
     return (
       <div>
         {form}
-        <ul>
-          <li>Temperature: {Math.round(weather.temperature)}°C</li>
-          <li>Description: {weather.description}</li>
-          <li>Wind: {weather.wind}m/s</li>
-          <li>Humidity: {weather.humidity}%</li>
+        <h1>City</h1>
+          <div className="row">
+            <div className="col-6">
+              <ul><li>{weather.date}</li>
+          <li className="text-capitalize">{weather.description}</li>
           <li>
-            <img src={weather.icon} alt={weather.description} />
-          </li>
-        </ul>
+            <img src={weather.icon} />{Math.round(weather.temperature)}°C
+          </li></ul>
+            </div>
+            <div className="col-6">
+              <ul><li>Wind: {weather.wind}m/s</li>
+          <li>Humidity: {weather.humidity}%</li></ul>
+            </div>
+          </div>
       </div>
     );
   } else {
