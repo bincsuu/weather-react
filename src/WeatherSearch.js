@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import FormattedDate from "./FormattedDate";
 
-export default function WeatherSearch() {
-  const [city, setCity] = useState("");
+export default function WeatherSearch(props) {
+  const [city, setCity] = useState(props.defaultCity);
   const [loaded, setLoaded] = useState(false);
   const [weather, setWeather] = useState(null);
 
@@ -15,6 +15,7 @@ export default function WeatherSearch() {
       description: response.data.weather[0].description,
       wind: response.data.wind.speed,
       humidity: response.data.main.humidity,
+      city: response.data.name,
       icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
     });
   }
@@ -35,7 +36,7 @@ export default function WeatherSearch() {
     <form onSubmit={handleSubmit}>
       <div className="row">
         <div className="col-9">
-      <input type="search" placeholder="Enter a city" className="form-input" autpFocus ="on" onChange={updateCity} />
+      <input type="search" placeholder="Enter a city" className="form-input" autoFocus="on" onChange={updateCity} />
       </div>
       <div className="col-3">
       <input type="submit" value="Search" className="form-button" />
@@ -48,7 +49,7 @@ export default function WeatherSearch() {
     return (
       <div>
         {form}
-        <h1>City</h1>
+        <h1>{weather.city}</h1>
           <div className="row">
             <div className="col-6">
               <ul>
