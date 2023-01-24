@@ -1,0 +1,33 @@
+li {
+    list-style: none;
+}
+
+h1 {
+    margin: 20px auto;
+}
+
+.form-input {
+    display: block;
+    width: 100%;
+    font-size: 14px;
+    padding: 3px;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.form-button {
+    background: pink;
+    color: white;
+    display: inline-block;
+    border: 1px solid transparent;
+    padding: 3px;
+    border-radius: 0.25rem;
+    font-size: 14px;
+    width: 100%;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.icon-image {
+    max-width: 5%;
+}

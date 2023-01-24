@@ -1,4 +1,21 @@
 .App {
-    font-family: sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
   }
   
+  .container {
+    background: greenyellow;
+    border: 1px solid #dadde1;
+    border-radius: 15px;
+    padding: 30px;
+  }
+
+  .footer {
+    font-size: 11px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+  }
+
+  .WeatherApp {
+    margin: 100px auto;
+    max-width: 600px;
+  }
