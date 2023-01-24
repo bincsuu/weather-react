@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import FormattedDate from "./FormattedDate";
 
 export default function WeatherSearch() {
   const [city, setCity] = useState("");
@@ -10,7 +11,7 @@ export default function WeatherSearch() {
     setLoaded(true);
     setWeather({
       temperature: response.data.main.temp,
-      date: "Monday 07:00",
+      date: new Date(response.data.dt * 1000),
       description: response.data.weather[0].description,
       wind: response.data.wind.speed,
       humidity: response.data.main.humidity,
@@ -50,10 +51,13 @@ export default function WeatherSearch() {
         <h1>City</h1>
           <div className="row">
             <div className="col-6">
-              <ul><li>{weather.date}</li>
+              <ul>
+                <li>
+                  <FormattedDate date={weather.date} />
+                    </li>
           <li className="text-capitalize">{weather.description}</li>
           <li>
-            <img src={weather.icon} />{Math.round(weather.temperature)}°C
+            <img src={weather.icon} alt="{weather.description}" />{Math.round(weather.temperature)}°C
           </li></ul>
             </div>
             <div className="col-6">
