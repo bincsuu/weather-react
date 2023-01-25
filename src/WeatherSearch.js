@@ -50,18 +50,16 @@ export default function WeatherSearch(props) {
     return (
       <div>
         {form}
-        <h1>{weather.city}</h1>
-              <ul>
-                <li>
+        <h1 className="city-display" >{weather.city}</h1>
+                <div className="day-time" >
                   <FormattedDate date={weather.date} />
-                    </li>
-          </ul>
+                  </div>
+                  <div className="text-capitalize weather-description">{weather.description}</div>
           <div className="row">
-          <div classname="col-6">
-            <img src={weather.icon} alt="{weather.description}" />
-            {Math.round(weather.temperature)}°C
+          <div className="col-6 weather-display">
+            <img src={weather.icon} alt={weather.description} className="icon-image"/><span className="temperature-display">{Math.round(weather.temperature)}<span className="unit">°C</span></span>
           </div>
-            <div className="col-6">
+            <div className="col-6 wind-humidity">
               <ul><li>Wind: {weather.wind}m/s</li>
           <li>Humidity: {weather.humidity}%</li></ul>
             </div>

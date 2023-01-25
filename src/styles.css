@@ -1,17 +1,21 @@
 .App {
-    font-family: Arial, Helvetica, sans-serif;
+    
   }
   
   .container {
-    background: greenyellow;
+    background-image: url("pexels-mont-photographs-2948636.jpg");
+    background-position: center;
+    background-color: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
     border: 1px solid #dadde1;
     border-radius: 15px;
     padding: 30px;
+    font-family: 'Gothic A1', sans-serif;
+    color: white;
   }
 
   .footer {
-    font-size: 11px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    font-family: 'Gothic A1', sans-serif;
     text-align: center;
   }
 
