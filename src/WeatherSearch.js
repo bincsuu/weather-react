@@ -60,8 +60,8 @@ export default function WeatherSearch(props) {
             <img src={weather.icon} alt={weather.description} className="icon-image"/><span className="temperature-display">{Math.round(weather.temperature)}<span className="unit">°C</span></span>
           </div>
             <div className="col-6 wind-humidity">
-              <ul><li>Wind: {weather.wind}m/s</li>
-          <li>Humidity: {weather.humidity}%</li></ul>
+              <ul><li>Wind:  {weather.wind} m/s</li>
+          <li>Humidity:  {weather.humidity} %</li></ul>
             </div>
           </div>
       </div>
