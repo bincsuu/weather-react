@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import FormattedDate from "./FormattedDate";
+import WeatherForecast from "./WeatherForecast";
+import WeatherIcon from "./WeatherIcon";
 import "./WeatherSearch.css";
 
 export default function WeatherSearch(props) {
@@ -9,15 +11,17 @@ export default function WeatherSearch(props) {
   const [weather, setWeather] = useState(null);
 
   function showWeather(response) {
+    console.log("props.data.icon");
     setLoaded(true);
     setWeather({
       temperature: response.data.main.temp,
+      coordinates: response.data.coord,
       date: new Date(response.data.dt * 1000),
       description: response.data.weather[0].description,
       wind: response.data.wind.speed,
       humidity: response.data.main.humidity,
       city: response.data.name,
-      icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+      icon: response.data.weather[0].icon,
     });
   }
 
@@ -57,13 +61,15 @@ export default function WeatherSearch(props) {
                   <div className="text-capitalize weather-description">{weather.description}</div>
           <div className="row">
           <div className="col-6 weather-display">
-            <img src={weather.icon} alt={weather.description} className="icon-image"/><span className="temperature-display">{Math.round(weather.temperature)}<span className="unit">°C</span></span>
+          <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="" />
+            <span className="temperature-display">{Math.round(weather.temperature)}<span className="unit">°C</span></span>
           </div>
             <div className="col-6 wind-humidity">
               <ul><li>Wind:  {weather.wind} m/s</li>
           <li>Humidity:  {weather.humidity} %</li></ul>
             </div>
           </div>
+          <WeatherForecast coordinates={weather.coordinates}/>
       </div>
     );
   } else {
