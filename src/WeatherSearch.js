@@ -61,7 +61,7 @@ export default function WeatherSearch(props) {
                   <div className="text-capitalize weather-description">{weather.description}</div>
           <div className="row">
           <div className="col-6 weather-display">
-          <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="" />
+          <WeatherIcon />
             <span className="temperature-display">{Math.round(weather.temperature)}<span className="unit">°C</span></span>
           </div>
             <div className="col-6 wind-humidity">

@@ -1,0 +1,19 @@
+.forecast-float {
+    margin: 20px auto;
+    font-family: 'Gothic A1', sans-serif;
+    font-size: 12px;
+    text-align: center;
+}
+
+.forecast-day {
+    padding: 5px;
+}
+
+.forecast-max {
+    padding: 5px;
+}
+
+.forecast-min {
+    padding: 5px;
+    color: #D3D3D3;
+}
